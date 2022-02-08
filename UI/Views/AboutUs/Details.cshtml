@@ -1,0 +1,64 @@
+﻿@model AboutUsListDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="statbox widget box box-shadow">
+			<div class=" align-left">
+				<div class="row">
+					<div class="col-md-12 mb-2">
+						<button onclick="CreateData()" class="btn-creative btn-3 btn-3e flaticon-plus-1"><span>Hakkımızda Yazısı</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row layout-spacing">
+	<div class="col-lg-12">
+		<div class="statbox widget box box-shadow">
+			<div class="widget-content widget-content-area">
+				<div class="table-responsive mb-4">
+					<table id="column-filter" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th hidden class="checkbox-column"> Record No. </th>
+								<th>Başlık</th>
+								<th>Kayıt Tarihi</th>
+								<th>Aktiflik</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+									<td hidden class="checkbox-column"> 1 </td>
+									<td>@Model.Title</td>
+									<td>@Model.CreatedDate</td>
+									@if (@Model.Status == true)
+									{
+										<td><span class="shadow-none badge badge-success">Aktif</span></td>
+									}
+									else
+									{
+										<td><span class="shadow-none badge badge-danger">Aktif Değil</span></td>
+									}
+								</tr>
+
+						</tbody>
+						<tfoot>
+							<tr>
+								<th hidden class="checkbox-column"></th>
+								<th>Başlık</th>
+								<th>Kayıt Tarihi</th>
+								<th>Aktiflik</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

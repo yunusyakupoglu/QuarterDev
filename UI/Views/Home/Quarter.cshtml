@@ -1,0 +1,84 @@
+﻿@model HomeViewModel
+@{
+	ViewData["Title"] = "Quarter";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="blog-details">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="sidebar">
+					<div class="sidebar__single service-details__tab">
+						@foreach (var kategori in Model.quarterCategories)
+						{
+							<h3>@kategori.Title</h3>
+							<ul class="list-unstyled sidebar__cat-list nav-tabs nav">
+
+								@foreach (var baslik in Model.quarterCategoryTitles)
+								{
+									@if (kategori.Id == baslik.QuarterCategoryId)
+									{
+										<li>
+											<a href="#id-@baslik.Id" data-toggle="tab">@baslik.Title</a>
+										</li>
+									}
+								}
+							</ul>
+							<!-- /.list-unstyled -->
+							<br />
+						}
+					</div><!-- /.sidebar__single -->
+				</div><!-- /.sidebar -->
+			</div><!-- /.col-lg-3 -->
+			<div class="col-lg-9">
+				<div class="tab-content">
+					@foreach (var baslik in Model.quarterCategoryTitles)
+					{
+						<div class="service-details__content tab-pane animated fadeInUp" id="id-@baslik.Id">
+
+							<h3>@baslik.Title</h3>
+							<p>@baslik.Description</p>
+
+							<hr />
+							@foreach (var altBaslik in Model.categorySubtitles)
+							{
+								@if (baslik.Id == altBaslik.QuarterCategoryTitleId)
+								{
+									<br />
+									<h5 style="font-family:'Poppins',sans-serif">@altBaslik.Title</h5>
+									<ul class="service-details__list list-unstyled">
+										@foreach (var item in Model.subtitleItems)
+										{
+											@if (altBaslik.Id == item.CategoySubtitleId)
+											{
+												<li>
+													<i class="seolight-icon-target"></i>
+													@item.Description
+												</li>
+											}
+										}
+									</ul>
+									@foreach (var description in Model.subtitleDescriptions)
+									{
+										@if (altBaslik.Id == description.CategoySubtitleId)
+										{
+											<p>
+												@description.Description
+											</p>
+										}
+									}
+								}
+							}
+
+
+						</div>
+
+						<!-- /.service-details__content -->
+					}
+				</div>
+
+			</div><!-- /.col-lg-9 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.blog-details -->
