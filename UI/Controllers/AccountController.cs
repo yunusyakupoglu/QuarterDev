@@ -32,7 +32,7 @@ namespace UI.Controllers
         {
             return View();
         }
-        //[Authorize]
+        [Authorize]
         public IActionResult Dashboard()
         {
             return View();
@@ -51,6 +51,7 @@ namespace UI.Controllers
             if (result.IsValid)
             {
                 var dto = _mapper.Map<AppUserCreateDto>(model);
+                dto.ImagePath = _appUserManager.UploadImage(dto.FileDoc);
                 var createResponse = await _appUserManager.CreateWithRoleAsync(dto, (int)RoleType.Member);
                 return this.ResponseRedirectAction(createResponse, "SignIn");
             }

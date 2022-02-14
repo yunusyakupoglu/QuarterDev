@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace DTOs
 {
     public class AppUserCreateDto : IDto
     {
+        public string ImagePath { get; set; }
+        public IFormFile FileDoc { get; set; }
         public string FirstName { get; set; }
         public string SurName { get; set; }
         public string UserName { get; set; }

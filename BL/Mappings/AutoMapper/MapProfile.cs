@@ -56,6 +56,14 @@ namespace BL.Mappings.AutoMapper
             CreateMap<CategorySubtitleCreateDto, ObjCategorySubtitle>().ReverseMap();
             CreateMap<CategorySubtitleListDto, ObjCategorySubtitle>().ReverseMap();
             CreateMap<CategorySubtitleUpdateDto, ObjCategorySubtitle>().ReverseMap();
+
+            CreateMap<ProjectCreateDto, ObjProject>().ReverseMap();
+            CreateMap<ProjectListDto, ObjProject>().ReverseMap();
+            CreateMap<ProjectUpdateDto, ObjProject>().ReverseMap();
+
+            CreateMap<ProjectImageCreateDto, ObjProjectImage>().ReverseMap();
+            CreateMap<ProjectImageListDto, ObjProjectImage>().ReverseMap();
+            CreateMap<ProjectImageUpdateDto, ObjProjectImage>().ReverseMap();
         }
     }
 }

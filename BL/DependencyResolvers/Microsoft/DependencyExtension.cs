@@ -59,6 +59,12 @@ namespace BL.DependencyResolvers.Microsoft
             services.AddTransient<IValidator<SubtitleDescriptionCreateDto>, SubtitleDescriptionCreateDtoValidator>();
             services.AddTransient<IValidator<SubtitleDescriptionUpdateDto>, SubtitleDescriptionUpdateDtoValidator>();
 
+            services.AddTransient<IValidator<ProjectCreateDto>, ProjectCreateDtoValidator>();
+            services.AddTransient<IValidator<ProjectUpdateDto>, ProjectUpdateDtoValidator>();
+
+            services.AddTransient<IValidator<ProjectImageCreateDto>, ProjectImageCreateDtoValidator>();
+            services.AddTransient<IValidator<ProjectImageUpdateDto>, ProjectImageUpdateDtoValidator>();
+
             services.AddTransient<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
 
             services.AddScoped<IAppRoleManager, AppRoleManager>();
@@ -72,6 +78,8 @@ namespace BL.DependencyResolvers.Microsoft
             services.AddScoped<ISubtitleDescriptionManager, SubtitleDescriptionManager>();
             services.AddScoped<ICategorySubtitleManager, CategorySubtitleManager>();
             services.AddScoped<ISubtitleItemManager, SubtitleItemManager>();
+            services.AddScoped<IProjectManager, ProjectManager>();
+            services.AddScoped<IProjectImageManager, ProjectImageManager>();
         }
     }
 }

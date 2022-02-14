@@ -1,0 +1,39 @@
+﻿@model AppUserLoginDto
+@{
+	ViewData["Title"] = "SignIn";
+	Layout = "~/Views/Shared/_LayoutAuthentication.cshtml";
+}
+
+<form action="SignIn" method="post" class="form-register">
+	<div class="row">
+		<div class="col-md-12 text-center mb-4">
+			<img alt="logo" src="~/Logo/quarteryazilim2022light.png" style="width:200px;margin:0" class="theme-logo">
+		</div>
+
+		<div class="col-md-12">
+
+			<label for="username" class="sr-only">Kullanıcı Adınız</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-username"><i class="flaticon-user-7"></i> </span>
+				</div>
+				<input type="text" asp-for="UserName" id="username" class="form-control" placeholder="Kullanıcı Adınız" aria-describedby="username" required>
+			</div>
+
+			<label for="inputPassword" class="sr-only">Parolanız</label>
+			<div class="input-group mb-4">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-inputPassword"><i class="flaticon-key-2"></i> </span>
+				</div>
+				<input type="password" asp-for="Password" id="inputPassword" class="form-control" placeholder="Parolanız" aria-describedby="inputPassword" required>
+			</div>
+
+			<button class="btn btn-lg btn-gradient-warning btn-block btn-rounded mb-4 mt-5" type="submit">Giriş Yap</button>
+			<div class="forgot-pass text-center">
+				<a href="user_pass_recovery_2.html">Forgot Password ?</a>
+			</div>
+
+		</div>
+
+	</div>
+</form>

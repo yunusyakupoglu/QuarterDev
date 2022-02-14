@@ -1,0 +1,27 @@
+﻿@model HomeViewModel
+@{
+	ViewData["Title"] = "Projects";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="portfolio-one">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model.projects)
+			{
+				<div class="col-lg-4 col-md-6">
+					<div class="portfolio-one__single" style="width:375px;height:395px;display:flex;align-items:center">
+						<img  src="~/@item.ImagePath" style="width:100%" alt="">
+						<div class="portfolio-one__content">
+							<h3>@item.Title</h3>
+							<p>@item.BrandName</p>
+						</div><!-- /.portfolio-one__content -->
+				</div><!-- /.portfolio-one__single -->
+			</div>
+
+				<!-- /.col-lg-4 col-md-6 -->
+			}
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.portfolio-one -->

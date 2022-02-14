@@ -1,0 +1,92 @@
+﻿@model UserCreateModel
+
+@{
+	ViewData["Title"] = "SignUp";
+	Layout = "~/Views/Shared/_LayoutAuthentication.cshtml";
+}
+
+<form action="SignUp" method="post" enctype="multipart/form-data" class="form-register">
+	<div class="row">
+		<div class="col-md-12 text-center mb-4">
+			<img alt="logo" src="~/Logo/quarteryazilim2022light.png" style="width:200px;margin:0" class="theme-logo">
+		</div>
+
+		<div class="col-md-12">
+
+			<label for="name" class="sr-only">Adınız</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-username"><i class="flaticon-user-7"></i> </span>
+				</div>
+				<input type="text" asp-for="FirstName" id="name" class="form-control" placeholder="Adınız" aria-describedby="name" required>
+			</div>
+			<label for="surname" class="sr-only">Soyadınız</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-username"><i class="flaticon-user-7"></i> </span>
+				</div>
+				<input type="text" asp-for="SurName" id="surname" class="form-control" placeholder="Soyadınız" aria-describedby="surname" required>
+			</div>
+			<label for="username" class="sr-only">Kullanıcı Adınız</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-username"><i class="flaticon-user-7"></i> </span>
+				</div>
+				<input type="text" asp-for="UserName" id="username" class="form-control" placeholder="Kullanıcı Adınız" aria-describedby="username" required>
+			</div>
+			<label for="phone" class="sr-only">Telefon Numaranız</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-username"><i class="flaticon-user-7"></i> </span>
+				</div>
+				<input type="tel" asp-for="PhoneNumber" id="phone" class="form-control" placeholder="Telefon Numaranız" aria-describedby="phone" required>
+			</div>
+
+			<label for="inputEmail" class="sr-only">Email Adresiniz</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-inputEmail"><i class="flaticon-email-fill-2"></i> </span>
+				</div>
+				<input type="email" asp-for="Email" id="inputEmail" class="form-control" placeholder="Email Adresiniz" aria-describedby="inputEmail" required>
+			</div>
+
+			<label for="userImg" class="sr-only">Profil Fotoğrafınız</label>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-inputEmail"><i class="flaticon-email-fill-2"></i> </span>
+				</div>
+				<input type="file" asp-for="FileDoc" id="userImg" class="form-control" placeholder="Profil Fotoğrafı Seçiniz." aria-describedby="userImg" required>
+			</div>
+
+			<label for="inputPassword" class="sr-only">Parolanız</label>
+			<div class="input-group mb-4">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-inputPassword"><i class="flaticon-key-2"></i> </span>
+				</div>
+				<input type="password" asp-for="Password" id="inputPassword" class="form-control" placeholder="Parolanız" aria-describedby="inputPassword" required>
+			</div>
+
+			<label for="reInputPassword" class="sr-only">Parolanızı Tekrar Giriniz.</label>
+			<div class="input-group mb-4">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="icon-inputPassword"><i class="flaticon-key-2"></i> </span>
+				</div>
+				<input type="password" asp-for="ConfirmPassword" id="reInputPassword" class="form-control" placeholder="Parolanızı Tekrar Giriniz." aria-describedby="reInputPassword" required>
+			</div>
+
+			<div class="checkbox d-flex justify-content-center mt-3">
+				<div class="custom-control custom-checkbox mr-3">
+					<input type="checkbox" asp-for="Status" class="custom-control-input" id="customCheck1">
+					<label class="custom-control-label" for="customCheck1">Aktiflik</label>
+				</div>
+			</div>
+
+			<button class="btn btn-lg btn-gradient-warning btn-block btn-rounded mb-4 mt-5" type="submit">Kayıt Ol</button>
+			<div class="forgot-pass text-center">
+				<a href="user_pass_recovery_2.html">Forgot Password ?</a>
+			</div>
+
+		</div>
+
+	</div>
+</form>

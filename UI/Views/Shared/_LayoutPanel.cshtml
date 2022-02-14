@@ -42,7 +42,10 @@
 	<link href="~/assets/css/ui-kit/buttons/spinner/spinner.css" rel="stylesheet" type="text/css" />
 	<link href="~/assets/css/ui-kit/buttons/spinner/ladda.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="~/plugins/bootstrap-select/bootstrap-select.min.css">
-
+	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link href="~/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
+	<link href="~/plugins/file-upload/file-upload-with-preview.css" rel="stylesheet" type="text/css" />
 	<style>
 		.form-control {
 			border: 1px solid #ccc;
@@ -236,7 +239,7 @@
 						</div>
 					</div>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item d-flex" href="user_profile.html">
+@*					<a class="dropdown-item d-flex" href="user_profile.html">
 						<i class="mr-3 flaticon-user-11"></i> <span class="align-self-center">Profile Setting</span>
 					</a>
 					<a class="dropdown-item d-flex" href="apps_scheduler.html">
@@ -247,17 +250,17 @@
 					</a>
 					<a class="dropdown-item d-flex" href="user_lockscreen_1.html">
 						<i class="mr-3 flaticon-lock-1"></i> <span class="align-self-center">Lock Screen</span>
-					</a>
+					</a>*@
 
 					<div class="dropdown-item dropdown-item-btn d-flex justify-content-around">
-						<a class="" href="user_login_1.html">
+						<a class="" asp-controller="Account" asp-action="LogOut">
 							<i class="mr-2 flaticon-power-off"></i> <span class="align-self-center">Logout</span>
 						</a>
 					</div>
 				</div>
 			</li>
 
-			<li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4">
+@*			<li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4">
 				<a href="javascript:void(0);" class="nav-link dropdown-toggle" id="message-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<span class="icon flaticon-mail-1"></span><span class="badge badge-primary">13</span>
 				</a>
@@ -317,9 +320,9 @@
 						<a class="btn btn-info my-3 btn-rounded" href="javascript:void(0);">More...</a>
 					</div>
 				</div>
-			</li>
+			</li>*@
 
-			<li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4">
+@*			<li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4">
 				<a href="javascript:void(0);" class="nav-link dropdown-toggle" id="notification-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<span class="icon flaticon-bell-24"></span><span class="badge badge-success">15</span>
 				</a>
@@ -364,7 +367,7 @@
 						</div>
 					</div>
 				</div>
-			</li>
+			</li>*@
 
 			<li class="nav-item dropdown cs-toggle ml-3 mr-lg-4">
 				<a href="#" class="nav-link toggle-control-sidebar suffle">
@@ -388,7 +391,7 @@
 					<li class="menu">
 						<a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 							<div class="">
-								<i class="flaticon-computer-6"></i>
+								<i class="flaticon-users"></i>
 								<span>Hakkımızda</span>
 							</div>
 
@@ -511,7 +514,42 @@
 							</div>
 						</div>
 					</li>
+					<li class="menu">
+						<a href="#project" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+							<div class="">
+								<i class="flaticon-pencil-line"></i>
+								<span>Projeler ve Referanslar</span>
+							</div>
 
+							<div>
+								<i class="flaticon-down-arrow"></i>
+							</div>
+						</a>
+						<ul class="collapse submenu list-unstyled" id="project" data-parent="#topAccordion">
+							<li>
+								<a href="#proje" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"> PROJE VE REFERANS <i class="flaticon-dot-three"></i> </a>
+								<ul class="collapse list-unstyled sub-submenu show" id="proje">
+									<li>
+										<a asp-controller="Project" asp-action="Create"> Proje ve Referans Ekle</a>
+									</li>
+									<li>
+										<a asp-controller="Project" asp-action="Index"> Proje ve Referans Listele</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#img" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"> PROJE RESİMLERİ <i class="flaticon-dot-three"></i> </a>
+								<ul class="collapse list-unstyled sub-submenu show" id="img">
+									<li>
+										<a asp-controller="ProjectImage" asp-action="Create"> Proje Resmi Ekle</a>
+									</li>
+									<li>
+										<a asp-controller="ProjectImage" asp-action="Index"> Proje Resimlerini Listele</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 
 				</ul>
 			</nav>
@@ -1212,5 +1250,17 @@
 	<script src="~/assets/js/ui-kit/button/spinner/ladda.min.js"></script>
 	<script src="~/assets/js/ui-kit/button/custo-spinner.js"></script>
 	<script src="~/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script src="~/plugins/dropzone/dropzone.min.js"></script>
+	<script src="~/plugins/dropzone/custom-dropzone.js"></script>
+	<script src="~/plugins/file-upload/file-upload-with-preview.js"></script>
+
+	<script>
+		//First upload
+		var firstUpload = new FileUploadWithPreview('myFirstImage')
+		//Second upload
+		var secondUpload = new FileUploadWithPreview('mySecondImage')
+	</script>
+	<!-- END PAGE LEVEL PLUGINS -->
 </body>
 </html>

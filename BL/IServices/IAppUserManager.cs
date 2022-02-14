@@ -1,5 +1,6 @@
 ﻿using Common;
 using DTOs;
+using Microsoft.AspNetCore.Http;
 using OL;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,7 @@ namespace BL.IServices
         Task<IResponse<AppUserCreateDto>> CreateWithRoleAsync(AppUserCreateDto dto, int roleId);
         Task<IResponse<AppUserListDto>> CheckUserAsync(AppUserLoginDto dto);
         Task<IResponse<List<AppRoleListDto>>> GetRolesByUserIdAsync(int userId);
+        string UploadImage(IFormFile formFile);
+        string DeleteImage(string filename);
     }
 }

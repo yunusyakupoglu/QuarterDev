@@ -30,6 +30,8 @@ namespace DAL
             modelBuilder.ApplyConfiguration(new ObjSubtitleItemConfiguration());
             modelBuilder.ApplyConfiguration(new ObjSubtitleDescriptionConfiguration());
             modelBuilder.ApplyConfiguration(new ObjCategorySubtitleConfiguration());
+            modelBuilder.ApplyConfiguration(new ObjProjectConfiguration());
+            modelBuilder.ApplyConfiguration(new ObjProjectImageConfiguration());
         }
 
         public DbSet<ObjAppRole> objAppRoles { get; set; }
@@ -45,5 +47,7 @@ namespace DAL
         public DbSet<ObjSubtitleItem> SubtitleItems{ get; set; }
         public DbSet<ObjSubtitleDescription> SubtitleDescriptions{ get; set; }
         public DbSet<ObjCategorySubtitle> CategorySubtitles{ get; set; }
+        public DbSet<ObjProject> Projects{ get; set; }
+        public DbSet<ObjProjectImage> ProjectImages{ get; set; }
     }
 }

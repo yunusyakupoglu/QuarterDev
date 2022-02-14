@@ -43,6 +43,7 @@ namespace UI
             services.AddTransient<IValidator<QuarterCategoryTitlesViewModel>, QuarterCategoryTitlesViewModelValidator>();
             services.AddTransient<IValidator<SubtitleItemViewModel>, SubtitleItemViewModelValidator>();
             services.AddTransient<IValidator<SubtitleDescriptionViewModel>, SubtitleDescriptionViewModelValidator>();
+            services.AddTransient<IValidator<ProjectImageViewModel>, ProjectImageViewModelValidator>();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                             .AddEntityFrameworkStores<ApplicationDbContext>(); services.AddControllersWithViews();
             services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();

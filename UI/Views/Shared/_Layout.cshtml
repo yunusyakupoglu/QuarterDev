@@ -5,6 +5,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@ViewBag.Title</title>
+	<meta content="Quarter Yazılım ve Danışmanlık Hizmetleri" name="description">
+	<meta content="yazılım" name="keywords">
+	<meta content="yazilim" name="keywords">
+	<meta content="software" name="keywords">
+	<meta content="dotnet" name="keywords">
+	<meta content="c#" name="keywords">
+	<meta content="csharp" name="keywords">
+	<meta content="python" name="keywords">
+	<meta content="web" name="keywords">
+	<meta content="web tasarım" name="keywords">
+	<meta content="web programlama" name="keywords">
+	<meta content="developer" name="keywords">
+	<meta content="development" name="keywords">
+	<meta content="engineering" name="keywords">
+	<meta content="software engineering" name="keywords">
+	<meta content="backend" name="keywords">
+	<meta content="QuarterYazilim" name="author">
 
 	<!-- favicon icons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="~/seclight/assets/images/favicons/apple-touch-icon.png">
@@ -48,7 +65,7 @@
 			<div class="container">
 				<div class="site-header-one__logo">
 					<a href="index.html">
-						<img src="assets/images/logo-1-1.png" alt="">
+						<img src="~/Logo/quarteryazilim2022dark.png" style="width:200px;margin:0" alt="">
 					</a>
 					<a href="#" class="side-menu__toggler"><i class="fa fa-bars"></i></a>
 				</div><!-- /.site-header-one__logo -->
@@ -65,20 +82,20 @@
 							<a asp-controller="Home" asp-action="Projects">PROJELER</a>
 						</li>
 
-						<li>
+						@*						<li>
 							<a asp-controller="Home" asp-action="References">REFERANSLAR</a>
-						</li>
+							</li>*@
 						<li>
 							<a asp-controller="Home" asp-action="Contact">İLETİŞİM</a>
 						</li>
-						<li class="search-btn search-popup__toggler">
+						@*						<li class="search-btn search-popup__toggler">
 							<a href="#"><i class="fa fa-search"></i></a>
-						</li>
+							</li>*@
 					</ul><!-- /.main-nav__navigation-box -->
 				</div><!-- /.main-nav__main-navigation -->
-				<div class="main-nav__right">
+				@*<div class="main-nav__right">
 					<a href="#" class="thm-btn main-nav__btn">Sign Up</a>
-				</div><!-- /.main-nav__right -->
+					</div>*@<!-- /.main-nav__right -->
 			</div><!-- /.container -->
 		</header><!-- /.site-header-one -->
 		@RenderBody()

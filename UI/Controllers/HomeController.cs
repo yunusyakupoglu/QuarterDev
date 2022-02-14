@@ -21,8 +21,10 @@ namespace UI.Controllers
         private readonly ICategorySubtitleManager _categorySubtitle;
         private readonly ISubtitleDescriptionManager _subtitleDescription;
         private readonly ISubtitleItemManager _subtitleItem;
+        private readonly IProjectManager _project;
+        private readonly IProjectImageManager _projectImage;
 
-        public HomeController(IMapper mapper, IAboutUsManager aboutUs, IAUDescriptionManager auDescription, IQuarterCategoryManager quarterCategory, IQuarterCategoryTitleManager quarterCategoryTitle, ICategorySubtitleManager categorySubtitle, ISubtitleDescriptionManager subtitleDescription, ISubtitleItemManager subtitleItem)
+        public HomeController(IMapper mapper, IAboutUsManager aboutUs, IAUDescriptionManager auDescription, IQuarterCategoryManager quarterCategory, IQuarterCategoryTitleManager quarterCategoryTitle, ICategorySubtitleManager categorySubtitle, ISubtitleDescriptionManager subtitleDescription, ISubtitleItemManager subtitleItem, IProjectManager project, IProjectImageManager projectImage)
         {
             _mapper = mapper;
             _aboutUs = aboutUs;
@@ -32,6 +34,8 @@ namespace UI.Controllers
             _categorySubtitle = categorySubtitle;
             _subtitleDescription = subtitleDescription;
             _subtitleItem = subtitleItem;
+            _project = project;
+            _projectImage = projectImage;
         }
 
         public IActionResult Index()
@@ -60,6 +64,23 @@ namespace UI.Controllers
             home.categorySubtitles = _categorySubtitle.GetActiveAsync().Result.Data;
             home.subtitleDescriptions = _subtitleDescription.GetActiveAsync().Result.Data;
             home.subtitleItems = _subtitleItem.GetActiveAsync().Result.Data;
+            home.defaultCategoryTitle = home.quarterCategoryTitles[0] != null ? home.quarterCategoryTitles[0].Id : 1;
+            return View(home);
+        }
+
+        public IActionResult Projects()
+        {
+            HomeViewModel home = new HomeViewModel();
+            home.projects = _project.GetActiveAsync().Result.Data;
+            home.projectImages = _projectImage.GetActiveAsync().Result.Data;
+            return View(home);
+        }
+
+        public IActionResult References()
+        {
+            HomeViewModel home = new HomeViewModel();
+            home.projects = _project.GetActiveAsync().Result.Data;
+            home.projectImages = _projectImage.GetActiveAsync().Result.Data;
             return View(home);
         }
 

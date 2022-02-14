@@ -1,4 +1,5 @@
-﻿using OL;
+﻿using Microsoft.AspNetCore.Http;
+using OL;
 using System.Collections.Generic;
 
 namespace DTOs
@@ -6,6 +7,8 @@ namespace DTOs
     public class AppUserUpdateDto : IUpdateDto
     {
         public int Id { get; set; }
+        public string ImagePath { get; set; }
+        public IFormFile FileDoc { get; set; }
         public string FirstName { get; set; }
         public string SurName { get; set; }
         public string UserName { get; set; }

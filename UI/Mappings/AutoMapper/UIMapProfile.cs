@@ -14,6 +14,7 @@ namespace UI.Mappings.AutoMapper
             CreateMap<CategorySubtitleViewModel, CategorySubtitleCreateDto>().ReverseMap();
             CreateMap<SubtitleItemViewModel, SubtitleItemCreateDto>().ReverseMap();
             CreateMap<SubtitleDescriptionViewModel, SubtitleDescriptionCreateDto>().ReverseMap();
+            CreateMap<ProjectImageViewModel, ProjectImageCreateDto>().ReverseMap();
         }
     }
 }

@@ -106,6 +106,9 @@ namespace DAL.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -320,6 +323,80 @@ namespace DAL.Migrations
                     b.ToTable("CategorySubtitles");
                 });
 
+            modelBuilder.Entity("OL.ObjProject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("BrandName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("OL.ObjProjectImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ObjProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ObjProjectId");
+
+                    b.ToTable("ProjectImages");
+                });
+
             modelBuilder.Entity("OL.ObjQuarterCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -504,6 +581,13 @@ namespace DAL.Migrations
                         .HasForeignKey("ObjQuarterCategoryTitleId");
                 });
 
+            modelBuilder.Entity("OL.ObjProjectImage", b =>
+                {
+                    b.HasOne("OL.ObjProject", null)
+                        .WithMany("ProjectImages")
+                        .HasForeignKey("ObjProjectId");
+                });
+
             modelBuilder.Entity("OL.ObjQuarterCategoryTitle", b =>
                 {
                     b.HasOne("OL.ObjQuarterCategory", null)
@@ -552,6 +636,11 @@ namespace DAL.Migrations
                     b.Navigation("Descriptions");
 
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("OL.ObjProject", b =>
+                {
+                    b.Navigation("ProjectImages");
                 });
 
             modelBuilder.Entity("OL.ObjQuarterCategory", b =>

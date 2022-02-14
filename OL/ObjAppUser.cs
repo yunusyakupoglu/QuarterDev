@@ -8,6 +8,7 @@ namespace OL
 {
     public class ObjAppUser : BaseEntity
     {
+        public string ImagePath { get; set; }
         public string FirstName { get; set; }
         public string SurName { get; set; }
         public string UserName { get; set; }
