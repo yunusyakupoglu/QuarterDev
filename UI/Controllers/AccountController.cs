@@ -109,7 +109,7 @@ namespace UI.Controllers
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("SignIn");
+            return RedirectToAction("Index","Home");
         }
 
     }

@@ -55,7 +55,7 @@ namespace UI
         opt.Cookie.SameSite = SameSiteMode.Strict;
         opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
         opt.ExpireTimeSpan = TimeSpan.FromDays(20);
-        opt.LoginPath = new PathString("/Account/SignIn");
+        opt.LoginPath = new PathString("/giris");
         opt.LogoutPath = new PathString("/Account/LogOut");
         opt.AccessDeniedPath = new PathString("/Account/AccessDenied");
     });
