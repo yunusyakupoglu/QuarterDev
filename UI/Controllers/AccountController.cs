@@ -61,12 +61,12 @@ namespace UI.Controllers
             }
             return View(model);
         }
-
+        [Route("giris")]
         public IActionResult SignIn()
         {
             return View();
         }
-
+        [Route("giris")]
         [HttpPost]
         public async Task<IActionResult> SignIn(AppUserLoginDto dto)
         {

@@ -2,13 +2,15 @@
 using BL.IServices;
 using DTOs;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using UI.Extensions;
 
 namespace UI.Controllers
 {
-	public class ProjectController : Controller
+    [Authorize]
+    public class ProjectController : Controller
 	{
 		private readonly IProjectManager _projectManager;
 		private readonly IValidator<ProjectCreateDto> _projectCreateDtoValidator;

@@ -34,5 +34,12 @@ namespace UI.Extensions
             return controller.RedirectToAction(actionName);
         }
 
+        public static IActionResult ResponseRedirectActionWithController(this Controller controller, IResponse response, string actionName, string controllerName)
+        {
+            if (response.ResponseType == ResponseType.NotFound)
+                return controller.NotFound();
+            return controller.RedirectToAction(actionName,controllerName);
+        }
+
     }
 }

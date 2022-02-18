@@ -3,25 +3,30 @@
 	ViewData["Title"] = "Projects";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<section class="portfolio-one">
+<section class="team-one">
 	<div class="container">
+		<img src="assets/images/shapes/contact-info-shape-1-1.png" class="contact-info-one__bg-shape-1" alt="">
 		<div class="row">
 			@foreach (var item in Model.projects)
 			{
 				<div class="col-lg-4 col-md-6">
-					<div class="portfolio-one__single" style="width:375px;height:395px;display:flex;align-items:center">
-						<img  src="~/@item.ImagePath" style="width:100%" alt="">
-						<div class="portfolio-one__content">
-							<h3>@item.Title</h3>
-							<p>@item.BrandName</p>
-						</div><!-- /.portfolio-one__content -->
-				</div><!-- /.portfolio-one__single -->
-			</div>
-
-				<!-- /.col-lg-4 col-md-6 -->
+					<div class="team-one__single">
+						<div class="team-one__image" style="width:371px;height:403px;display:flex;align-items:center;background-color:transparent !important">
+							<img src="~/@item.ImagePath" alt="">
+							<div class="team-one__social">
+								<a href="https://@item.Title"><i class="fa fa-link" style="color:black"></i></a>
+							</div><!-- /.team-one__social -->
+					</div><!-- /.team-one__image -->
+					<div class="team-one__content">
+						<div class="team-one__content-text">
+								<h3>@item.BrandName</h3>
+								<p>@item.ProjectType</p>
+							</div><!-- /.team-one__content-text -->
+					</div><!-- /.team-one__content -->
+				</div><!-- /.team-one__single -->
+			</div><!-- /.col-lg-4 col-md-6 -->
 			}
 
 		</div><!-- /.row -->
 	</div><!-- /.container -->
-</section><!-- /.portfolio-one -->
+</section><!-- /.team-one -->

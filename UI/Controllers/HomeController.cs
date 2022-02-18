@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BL.IServices;
+using DTOs;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using UI.Extensions;
 using UI.Models;
 
 namespace UI.Controllers
@@ -23,31 +26,42 @@ namespace UI.Controllers
         private readonly ISubtitleItemManager _subtitleItem;
         private readonly IProjectManager _project;
         private readonly IProjectImageManager _projectImage;
+        private readonly IFaqManager _faq;
+        private readonly ICompanyServiceManager _companyService;
+        private readonly IValidator<AboutUsCreateDto> _aboutUsCreateDtoValidator;
 
-        public HomeController(IMapper mapper, IAboutUsManager aboutUs, IAUDescriptionManager auDescription, IQuarterCategoryManager quarterCategory, IQuarterCategoryTitleManager quarterCategoryTitle, ICategorySubtitleManager categorySubtitle, ISubtitleDescriptionManager subtitleDescription, ISubtitleItemManager subtitleItem, IProjectManager project, IProjectImageManager projectImage)
+
+		public HomeController(IMapper mapper, IAboutUsManager aboutUs, IAUDescriptionManager auDescription, IQuarterCategoryManager quarterCategory, IQuarterCategoryTitleManager quarterCategoryTitle, ICategorySubtitleManager categorySubtitle, ISubtitleDescriptionManager subtitleDescription, ISubtitleItemManager subtitleItem, IProjectManager project, IProjectImageManager projectImage, IFaqManager faq, ICompanyServiceManager companyService, IValidator<AboutUsCreateDto> aboutUsCreateDtoValidator)
+		{
+			_mapper = mapper;
+			_aboutUs = aboutUs;
+			_auDescription = auDescription;
+			_quarterCategory = quarterCategory;
+			_quarterCategoryTitle = quarterCategoryTitle;
+			_categorySubtitle = categorySubtitle;
+			_subtitleDescription = subtitleDescription;
+			_subtitleItem = subtitleItem;
+			_project = project;
+			_projectImage = projectImage;
+			_faq = faq;
+			_companyService = companyService;
+			_aboutUsCreateDtoValidator = aboutUsCreateDtoValidator;
+		}
+		public IActionResult Index()
         {
-            _mapper = mapper;
-            _aboutUs = aboutUs;
-            _auDescription = auDescription;
-            _quarterCategory = quarterCategory;
-            _quarterCategoryTitle = quarterCategoryTitle;
-            _categorySubtitle = categorySubtitle;
-            _subtitleDescription = subtitleDescription;
-            _subtitleItem = subtitleItem;
-            _project = project;
-            _projectImage = projectImage;
+            HomeViewModel home = new HomeViewModel();
+            home.faqs = _faq.GetActiveAsync().Result.Data;
+            home.companyServices = _companyService.GetActiveAsync().Result.Data;
+            home.projects = _project.GetActiveAsync().Result.Data;
+            return View(home);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+        [Route("gizlilik")]
         public IActionResult Privacy()
         {
             return View();
         }
-
+        [Route("hakkimizda")]
         public IActionResult AboutUs()
         {
             HomeViewModel home = new HomeViewModel();
@@ -55,7 +69,23 @@ namespace UI.Controllers
             home.aUDescriptions=_auDescription.GetActiveAsync().Result.Data;
             return View(home);
         }
-
+        [HttpPost]
+        public async Task<IActionResult> AboutUs(AboutUsCreateDto model)
+        {
+            var result = _aboutUsCreateDtoValidator.Validate(model);
+            if (result.IsValid)
+            {
+                var dto = _mapper.Map<AboutUsCreateDto>(model);
+                var createResponse = await _aboutUs.CreateAsync(dto);
+                return this.ResponseRedirectAction(createResponse, "Index");
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View(model);
+        }
+        [Route("quarter")]
         public IActionResult Quarter()
         {
             HomeViewModel home = new HomeViewModel();
@@ -67,7 +97,7 @@ namespace UI.Controllers
             home.defaultCategoryTitle = home.quarterCategoryTitles[0] != null ? home.quarterCategoryTitles[0].Id : 1;
             return View(home);
         }
-
+        [Route("projeler")]
         public IActionResult Projects()
         {
             HomeViewModel home = new HomeViewModel();
@@ -75,8 +105,8 @@ namespace UI.Controllers
             home.projectImages = _projectImage.GetActiveAsync().Result.Data;
             return View(home);
         }
-
-        public IActionResult References()
+        [Route("iletisim")]
+        public IActionResult Contact()
         {
             HomeViewModel home = new HomeViewModel();
             home.projects = _project.GetActiveAsync().Result.Data;

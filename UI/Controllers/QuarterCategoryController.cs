@@ -2,12 +2,14 @@
 using BL.IServices;
 using DTOs;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using UI.Extensions;
 
 namespace UI.Controllers
 {
+    [Authorize]
     public class QuarterCategoryController : Controller
     {
         private readonly IQuarterCategoryManager _qtManager;

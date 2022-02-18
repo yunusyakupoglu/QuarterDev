@@ -32,6 +32,9 @@ namespace DAL
             modelBuilder.ApplyConfiguration(new ObjCategorySubtitleConfiguration());
             modelBuilder.ApplyConfiguration(new ObjProjectConfiguration());
             modelBuilder.ApplyConfiguration(new ObjProjectImageConfiguration());
+            modelBuilder.ApplyConfiguration(new ObjFaqConfiguration());
+            modelBuilder.ApplyConfiguration(new ObjCompanyServiceConfiguration());
+            modelBuilder.ApplyConfiguration(new ObjCustomerConfiguration());
         }
 
         public DbSet<ObjAppRole> objAppRoles { get; set; }
@@ -41,13 +44,16 @@ namespace DAL
         public DbSet<ObjBlogAppUser> blogAppUsers { get; set; }
         public DbSet<ObjBlogAppUserStatus> blogAppUserStatuses { get; set; }
         public DbSet<ObjAboutUs> aboutUses { get; set; }
-        public DbSet<ObjAUDescription> AUDescriptions{ get; set; }
-        public DbSet<ObjQuarterCategory> QuarterCategories{ get; set; }
-        public DbSet<ObjQuarterCategoryTitle> QuarterCategoryTitles{ get; set; }
-        public DbSet<ObjSubtitleItem> SubtitleItems{ get; set; }
-        public DbSet<ObjSubtitleDescription> SubtitleDescriptions{ get; set; }
-        public DbSet<ObjCategorySubtitle> CategorySubtitles{ get; set; }
-        public DbSet<ObjProject> Projects{ get; set; }
-        public DbSet<ObjProjectImage> ProjectImages{ get; set; }
+        public DbSet<ObjAUDescription> AUDescriptions { get; set; }
+        public DbSet<ObjQuarterCategory> QuarterCategories { get; set; }
+        public DbSet<ObjQuarterCategoryTitle> QuarterCategoryTitles { get; set; }
+        public DbSet<ObjSubtitleItem> SubtitleItems { get; set; }
+        public DbSet<ObjSubtitleDescription> SubtitleDescriptions { get; set; }
+        public DbSet<ObjCategorySubtitle> CategorySubtitles { get; set; }
+        public DbSet<ObjProject> Projects { get; set; }
+        public DbSet<ObjProjectImage> ProjectImages { get; set; }
+        public DbSet<ObjFaq> Faqs { get; set; }
+        public DbSet<ObjCompanyService> CompanyServices { get; set; }
+        public DbSet<ObjCustomer> Customers { get; set; }
     }
 }

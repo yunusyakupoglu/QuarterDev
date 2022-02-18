@@ -2,7 +2,7 @@
 
 // Define some constants
 define( "RECIPIENT_NAME", "Web Enquiry" );
-define( "RECIPIENT_EMAIL", "info@srlelectrical.com.au" );
+define( "RECIPIENT_EMAIL", "yunuscakal60@gmail.com" );
 
 // Read the form values
 $success = false;

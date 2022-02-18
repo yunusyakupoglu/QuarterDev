@@ -14,8 +14,10 @@ namespace UI.Models
         public List<SubtitleItemListDto> subtitleItems { get; set; }
         public List<ProjectListDto> projects { get; set; }
         public List<ProjectImageListDto> projectImages { get; set; }
+        public List<FaqListDto> faqs { get; set; }
+        public List<CompanyServiceListDto> companyServices { get; set; }
         public int defaultCategoryTitle { get; set; }
 
-		
+
     }
 }

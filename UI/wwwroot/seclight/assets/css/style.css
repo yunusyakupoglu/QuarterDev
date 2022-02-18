@@ -3037,7 +3037,6 @@ h6 {
 	content: '';
 	width: 21px;
 	height: 21px;
-	background-image: url(../images/shapes/faq-close-1-1.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: absolute;
@@ -3046,10 +3045,6 @@ h6 {
 	right: 35px;
 	opacity: 0;
 	transition: all 500ms ease;
-}
-
-.faq-one .accrodion.active .accrodion-title h4::after {
-	opacity: 1;
 }
 
 .faq-one .accrodion-title h4::before {
@@ -3092,7 +3087,7 @@ h6 {
 .faq-one__home-one {
 	padding-top: 110px;
 	padding-bottom: 10px;
-	background-image: url(../images/resources/faq-1-moc-1.png);
+	background-image: url(../seclight/assets/images/resources/faqImg.png);
 	background-repeat: no-repeat;
 	background-position: bottom right;
 }

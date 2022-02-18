@@ -1,30 +1,44 @@
-﻿@{
+﻿@model HomeViewModel
+@{
 	ViewData["Title"] = "Anasayfa";
 }
+
+<style>
+	.faq-one .accrodion.active .accrodion-title h4::after {
+		opacity: 0 !important;
+	}
+
+	.faq-one__home-one {
+		padding-top: 110px;
+		padding-bottom: 10px;
+		background-image: url(../seclight/assets/images/resources/faqImg.png);
+		background-repeat: no-repeat;
+		background-position: bottom right;
+	}
+</style>
 
 <section class="banner-one">
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-5">
 				<div class="banner-one__content">
-					<h3>#1 SEO company <br> in Worldwide more <br> than want.</h3>
-					<p>Contrary to popular belief, Lorem Ipsum <br> It has roots in a piece of classical.</p>
+					<h3><span style="color:#0BA4E9">QUARTER</span> İLE HER ZAMAN BİR ADIM İLERİDE.</h3>
+					<p>İhtiyaçlarınıza özel yenilikçi, optimize ve hızlı çözümler üretiyoruz.</p>
 					<div class="banner-one__btn-block">
-						<a href="https://www.youtube.com/watch?v=KssOT2QVg-M" class="banner-one__video video-popup"><i class="fa fa-play"></i></a><!-- /.banner-one__video -->
-						<a href="contact.html" class="thm-btn">Contact us</a><!-- /.thm-btn -->
+						<a asp-controller="Customer" asp-action="Create" class="thm-btn">Başlayalım</a><!-- /.thm-btn -->
 					</div><!-- /.banner-one__btn-block -->
 				</div><!-- /.banner-one__content -->
 			</div><!-- /.col-lg-5 -->
 			<div class="col-xl-7">
 				<div class="banner-one__images wow fadeInRight" data-wow-duration="1500ms">
-					<img src="~/seclight/assets/images/resources/home-one/slider-layer1.png" class="banner-one__image-1" alt="">
-					<img src="~/seclight/assets/images/resources/home-one/slider-layer2.png" class="banner-one__image-2 float-bob-y" alt="">
+					<img src="~/seclight/assets/images/resources/home-one/slider-layer11.png" class="banner-one__image-1" alt=""> <!--slider-layer11-->
+					<img src="~/seclight/assets/images/resources/home-one/slider-layer12.png" class="banner-one__image-2 float-bob-y" alt=""> <!--slider-layer12-->
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer3.png" class="banner-one__image-3" alt="">
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer4.png" class="banner-one__image-4" alt="">
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer5.png" class="banner-one__image-5" alt="">
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer6.png" class="banner-one__image-6" alt="">
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer7.png" class="banner-one__image-7" alt="">
-					<img src="~/seclight/assets/images/resources/home-one/slider-layer8.png" class="banner-one__image-8 float-bob-x" alt="">
+					<img src="~/seclight/assets/images/resources/home-one/slider-layer18.png" class="banner-one__image-8 float-bob-x" alt=""> <!--slider-layer18-->
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer9.png" class="banner-one__image-9" alt="">
 					<img src="~/seclight/assets/images/resources/home-one/slider-layer10.png" class="banner-one__image-10" alt="">
 				</div><!-- /.banner-one__images -->
@@ -36,50 +50,27 @@
 <section class="service-three">
 	<div class="container">
 		<div class="block-title block-title__two text-center">
-			<h4>Services</h4>
-			<h3>We give the best Services</h3>
+			<h4>Hizmetlerimiz</h4>
+			<h3>Profesyonel çözümler üretiyoruz.</h3>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipiscing elit sed do <br> eiusmod tempor incididunt ut
-				labore et dolore.
+				Şirketlerin ya da kişisel girişimlerin dijital ortamda ön plana çıkarması için profesyonel çözümler üretiyoruz.
 			</p>
 		</div><!-- /.block-title text-center -->
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="service-three__single wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
-					<div class="service-three__inner">
-						<i class="seolight-icon-pie-chart"></i>
-						<h3><a href="service-details.html">Online Analysis</a></h3>
-						<p>Lorem ipsum dolor sit amet, contop ctetur adipisicing.</p>
-					</div><!-- /.service-three__inner -->
+			@foreach (var service in Model.companyServices)
+			{
+				<div class="col-lg-6">
+					<div class="service-three__single wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+						<div class="service-three__inner">
+							<i class="@service.IconCode"></i>
+							<h3>@service.Title</h3>
+							<p>@service.Description</p>
+						</div><!-- /.service-three__inner -->
 				</div><!-- /.service-three__single -->
-			</div><!-- /.col-lg-4 -->
-			<div class="col-lg-6">
-				<div class="service-three__single wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="100ms">
-					<div class="service-three__inner">
-						<i class="seolight-icon-layers"></i>
-						<h3><a href="service-details.html">Web Designing</a></h3>
-						<p>Lorem ipsum dolor sit amet, contop ctetur adipisicing.</p>
-					</div><!-- /.service-three__inner -->
-				</div><!-- /.service-three__single -->
-			</div><!-- /.col-lg-4 -->
-			<div class="col-lg-6">
-				<div class="service-three__single wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="200ms">
-					<div class="service-three__inner">
-						<i class="seolight-icon-target"></i>
-						<h3><a href="service-details.html">SEO Marketing</a></h3>
-						<p>Lorem ipsum dolor sit amet, contop ctetur adipisicing.</p>
-					</div><!-- /.service-three__inner -->
-				</div><!-- /.service-three__single -->
-			</div><!-- /.col-lg-4 -->
-			<div class="col-lg-6">
-				<div class="service-three__single wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="200ms">
-					<div class="service-three__inner">
-						<i class="seolight-icon-target"></i>
-						<h3><a href="service-details.html">SEO Marketing</a></h3>
-						<p>Lorem ipsum dolor sit amet, contop ctetur adipisicing.</p>
-					</div><!-- /.service-three__inner -->
-				</div><!-- /.service-three__single -->
-			</div><!-- /.col-lg-4 -->
+			</div>
+
+				<!-- /.col-lg-4 -->
+			}
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.service-three -->
@@ -91,271 +82,58 @@
 			<div class="col-xl-5 d-flex">
 				<div class="my-auto">
 					<div class="service-two__moc-box wow fadeInUp" data-wow-duration="1500ms">
-						<img src="assets/images/resources/service-moc-1-1.png" class="float-bob-x" alt="">
+						<img src="~/seclight/assets/images/resources/service-moc-11-1.png" class="float-bob-x" alt="">
 					</div><!-- /.service-two__moc-box -->
 				</div><!-- /.my-auto -->
 			</div><!-- /.col-lg-5 -->
 			<div class="col-xl-7">
 				<div class="service-two__content">
 					<div class="block-title block-title__two text-left">
-						<h4>About us</h4>
-						<h3>Hiring the right Seo is important</h3>
+						<h4>Hakkımızda</h4>
+						<h3>Quarter Yazılım ve Danışmanlık</h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipiscing elit sed do <br> eiusmod tempor
-							incididunt ut
-							labore et dolore.
+							Quarter olarak; özel yazılım geliştirme, kurumsal web tasarım ve mobil uygulama geliştirme alanlarında siz değerli müşterilerimize profesyonel destek ve çözümler sunuyoruz.
+						</p>
+						<br />
+						<p>
+							Siz de yazılım çözümlerimizle ilgili bilgi almak için hemen bize ulaşın.
 						</p>
 					</div><!-- /.block-title text-center -->
-					<div class="service-two__box-wrap">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="service-two__box">
-									<i class="seolight-icon-options"></i>
-									<h3><a href="service-details.html">Web Designing</a></h3>
-									<p>
-										SEO- search engine optimiza tion is a race and winning a gold medal in
-										this race is not a cake walk. especially when you are in a business.
-									</p>
-									<a href="service-details.html" class="service-two__box-link">
-										Contact us <i class="seolight-icon-right-arrow"></i>
-									</a>
-									<!-- /.service-two__box-link -->
-								</div><!-- /.service-two__box -->
-							</div><!-- /.col-md-6 -->
-							<div class="col-md-6">
-								<div class="service-two__box">
-									<i class="seolight-icon-settings"></i>
-									<h3><a href="service-details.html">Easy Method</a></h3>
-									<p>
-										SEO keeps changing and new developments and algorithm updates keep taking
-										place constantly.
-									</p>
-									<a href="service-details.html" class="service-two__box-link">
-										Contact us <i class="seolight-icon-right-arrow"></i>
-									</a>
-									<!-- /.service-two__box-link -->
-								</div><!-- /.service-two__box -->
-							</div><!-- /.col-md-6 -->
-						</div><!-- /.row -->
-					</div><!-- /.service-two__box-wrap -->
-
 				</div><!-- /.service-two__content -->
 			</div><!-- /.col-lg-7 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.service-two -->
 
-<section class="team-one">
-	<div class="container">
-		<div class="block-title block-title__two text-center">
-			<h4>Team</h4>
-			<h3>Our SEO specialist team</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipiscing elit sed do <br> eiusmod tempor
-				incididunt ut
-				labore et dolore.
-			</p>
-		</div><!-- /.block-title text-center -->
-		<div class="row">
-			<div class="col-lg-4 ">
-				<div class="team-one__single">
-					<div class="team-one__image">
-						<img src="assets/images/team/team-1-1.jpg" alt="">
-						<div class="team-one__social">
-							<a href="#"><i class="fab fa-facebook-f"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-dribbble"></i></a>
-							<a href="#"><i class="fab fa-behance"></i></a>
-						</div><!-- /.team-one__social -->
-					</div><!-- /.team-one__image -->
-					<div class="team-one__content">
-						<div class="team-one__content-icon">
-							<i class="fab fa-dribbble"></i>
-						</div><!-- /.team-one__content-icon -->
-						<div class="team-one__content-text">
-							<h3><a href="#">Inez Gross</a></h3>
-							<p>Exicutive Offecier</p>
-						</div><!-- /.team-one__content-text -->
-					</div><!-- /.team-one__content -->
-				</div><!-- /.team-one__single -->
-			</div><!-- /.col-lg-4  -->
-			<div class="col-lg-4 ">
-				<div class="team-one__single">
-					<div class="team-one__image">
-						<img src="assets/images/team/team-1-2.jpg" alt="">
-						<div class="team-one__social">
-							<a href="#"><i class="fab fa-facebook-f"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-dribbble"></i></a>
-							<a href="#"><i class="fab fa-behance"></i></a>
-						</div><!-- /.team-one__social -->
-
-					</div><!-- /.team-one__image -->
-					<div class="team-one__content">
-						<div class="team-one__content-icon">
-							<i class="fab fa-twitter"></i>
-						</div><!-- /.team-one__content-icon -->
-						<div class="team-one__content-text">
-							<h3><a href="#">Nelle Morrison</a></h3>
-							<p>Exicutive Offecier</p>
-						</div><!-- /.team-one__content-text -->
-					</div><!-- /.team-one__content -->
-				</div><!-- /.team-one__single -->
-			</div><!-- /.col-lg-4  -->
-			<div class="col-lg-4 ">
-				<div class="team-one__single">
-					<div class="team-one__image">
-						<img src="assets/images/team/team-1-3.jpg" alt="">
-						<div class="team-one__social">
-							<a href="#"><i class="fab fa-facebook-f"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-dribbble"></i></a>
-							<a href="#"><i class="fab fa-behance"></i></a>
-						</div><!-- /.team-one__social -->
-
-					</div><!-- /.team-one__image -->
-					<div class="team-one__content">
-						<div class="team-one__content-icon">
-							<i class="fab fa-facebook-f"></i>
-						</div><!-- /.team-one__content-icon -->
-						<div class="team-one__content-text">
-							<h3><a href="#">Emily Cannon</a></h3>
-							<p>Exicutive Offecier</p>
-						</div><!-- /.team-one__content-text -->
-					</div><!-- /.team-one__content -->
-				</div><!-- /.team-one__single -->
-			</div><!-- /.col-lg-4  -->
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</section><!-- /.team-one -->
-
-
-<section class="contact-two">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 d-flex">
-				<div class="my-auto">
-					<div class="contact-two__content">
-						<div class="block-title block-title__two text-left">
-							<h4>Request a Call Back</h4>
-							<h3>Apply to get a call for solution</h3>
-							<p>
-								orem Ipsum is simply dummy text of the printing and dummy typesetting intodustry.
-								Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-								when an unknown printer took a galley of type.
-							</p>
-						</div><!-- /.block-title text-center -->
-						<h4>Open Hours: </h4>
-						<p>Mon - Sat: 8 am - 5 pm, <br> Sunday: CLOSED</p>
-					</div><!-- /.contact-two__content -->
-				</div><!-- /.my-auto -->
-			</div><!-- /.col-lg-6 -->
-			<div class="col-lg-6">
-				<form action="assets/inc/sendemail.php" class="contact-form-validated contact-two__form">
-					<img src="assets/images/shapes/contact-shape-2.png" class="contact-two__form-shape" alt="">
-					<div class="contact-two__form-inner wow fadeInRight" data-wow-duration="1500ms">
-						<div class="row">
-							<div class="col-md-6">
-								<input type="text" placeholder="Your name *" name="name">
-							</div><!-- /.col-md-6 -->
-							<div class="col-md-6">
-								<input type="text" placeholder="Email *" name="email">
-							</div><!-- /.col-md-6 -->
-							<div class="col-md-6">
-								<input type="text" placeholder="Phone *" name="phone">
-							</div><!-- /.col-md-6 -->
-							<div class="col-md-6">
-								<select name="discussion" class="selectpicker">
-									<option value="0">Select Topic</option>
-									<option value="0">Select Topic</option>
-									<option value="0">Select Topic</option>
-									<option value="0">Select Topic</option>
-								</select>
-							</div><!-- /.col-md-6 -->
-							<div class="col-md-12">
-								<textarea name="message" placeholder="Message..."></textarea>
-							</div><!-- /.col-md-6 -->
-							<div class="col-md-12">
-								<button type="submit" class="thm-btn contact-two__btn">Contact us</button>
-								<!-- /.thm-btn contact-two__btn -->
-							</div><!-- /.col-md-12 -->
-						</div><!-- /.row -->
-					</div><!-- /.contact-two__form-inner -->
-				</form><!-- /.contact-two__form -->
-			</div><!-- /.col-lg-6 -->
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</section><!-- /.contact-two -->
-
 <section class="faq-one__home-one faq-one">
 	<div class="container">
 		<div class="block-title block-title__two text-left">
 			<div class="row">
-				<div class="col-lg-6">
-					<h4>Faq</h4>
-					<h3>Questions & things to review before hiring SEO company in World wide</h3>
-				</div><!-- /.col-lg-6 -->
-				<div class="col-lg-6 d-flex">
-					<div class="my-auto">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor
-							incididunt ut labore et dolore magna. How ever, SEO is a tricky game.
-						</p>
-					</div><!-- /.my-auto -->
+				<div class="col-lg-10">
+					<h4>Sizin İçin Buradayız</h4>
+					<h3>Zaman, Maliyet, Planlama, Süreç ve daha bir sürü akılda kalan düşünceler. Hepsi için buradayız.</h3>
 				</div><!-- /.col-lg-6 -->
 			</div><!-- /.row -->
 		</div><!-- /.block-title text-left -->
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="accrodion-grp" data-grp-name="faq-accrodion-1">
-					<div class="accrodion active">
-						<div class="accrodion-title">
-							<h4>What should I include in my personal statement?</h4>
+					@foreach (var item in Model.faqs)
+					{
+						<div class="accrodion active">
+							<div class="accrodion-title">
+								<h4>@item.Title</h4>
+							</div>
+							<div class="accrodion-content">
+								<div class="inner">
+									<p>
+										@item.Description
+									</p>
+								</div><!-- /.inner -->
 						</div>
-						<div class="accrodion-content">
-							<div class="inner">
-								<p>
-									Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do <a href="#">eiusmod tempor incididunt</a> ut labore.
-								</p>
-							</div><!-- /.inner -->
 						</div>
-					</div>
-					<div class="accrodion ">
-						<div class="accrodion-title">
-							<h4>What will happen when I’ve sent my application?</h4>
-						</div>
-						<div class="accrodion-content">
-							<div class="inner">
-								<p>
-									Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do <a href="#">eiusmod tempor incididunt</a> ut labore.
-								</p>
-							</div><!-- /.inner -->
-						</div>
-					</div>
-					<div class="accrodion">
-						<div class="accrodion-title">
-							<h4>How can I make a change to my application?</h4>
-						</div>
-						<div class="accrodion-content">
-							<div class="inner">
-								<p>
-									Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do <a href="#">eiusmod tempor incididunt</a> ut labore.
-								</p>
-							</div><!-- /.inner -->
-						</div>
-					</div>
-					<div class="accrodion">
-						<div class="accrodion-title">
-							<h4>Check if the SEO Agency or a Freelancers website rank on search engine?</h4>
-						</div>
-						<div class="accrodion-content">
-							<div class="inner">
-								<p>
-									Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do <a href="#">eiusmod tempor incididunt</a> ut labore.
-								</p>
-							</div><!-- /.inner -->
-						</div>
-					</div>
+					}
+
 				</div>
 			</div><!-- /.col-lg-6 -->
 
@@ -363,119 +141,18 @@
 	</div><!-- /.container -->
 </section><!-- /.faq-one__home-one -->
 
-<div class="brand-one">
+<div class="clients">
 	<div class="container">
-		<div class="brand-one__carousel thm__owl-carousel owl-carousel owl-theme" data-options='{
-                    "items": 4, "margin": 70, "smartSpeed": 700, "nav": false, "dots": false, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": true, "loop": true
-                }'>
-
-			<div class="item">
-				<img src="assets/images/resources/brand-1-1.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-2.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-3.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-4.png" alt="">
-			</div><!-- /.item -->
-
-			<div class="item">
-				<img src="assets/images/resources/brand-1-1.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-2.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-3.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-4.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-1.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-2.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-3.png" alt="">
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="assets/images/resources/brand-1-4.png" alt="">
-			</div><!-- /.item -->
-		</div><!-- /.brand-one__carousel owl-carousel owl-theme -->
-	</div><!-- /.container -->
-</div><!-- /.brand-one -->
-
-<section class="blog-one blog-one__home-one">
-	<div class="container">
-		<div class="block-title block-title__two text-center">
-			<h4>Blog</h4>
-			<h3>Know something from our blog</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipiscing elit sed do <br> eiusmod tempor incididunt ut
-				labore et dolore.
-			</p>
-		</div><!-- /.block-title text-center -->
 		<div class="row">
-			<div class="col-lg-4  col-sm-12 wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
-				<div class="blog-one__single">
-					<div class="blog-one__image">
-						<img src="assets/images/blog/blog-1-1.png" alt="">
-						<a href="blog-details.html"><i class="fas fa-plus"></i></a>
-					</div><!-- /.blog-one__image -->
-					<div class="blog-one__content">
-						<div class="blog-one__meta">
-							<a href="#"><i class="fas fa-calendar-alt"></i>September 12, 2019</a>
-							<a href="#"><i class="fas fa-user"></i>Admin</a>
-						</div><!-- /.blog-one__meta -->
-						<h3><a href="blog-details.html">Strategy for Norway's Peion Fund Global.</a></h3>
-						<a href="blog-details.html" class="thm-btn blog-one__btn"><span>View more</span></a>
-						<!-- /.thm-btn blog-one__btn -->
-					</div><!-- /.blog-one__content -->
-				</div><!-- /.blog-one__single -->
-			</div><!-- /.col-lg-4  col-sm-12 -->
-			<div class="col-lg-4  col-sm-12">
-				<div class="blog-one__single wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-					<div class="blog-one__image">
-						<img src="assets/images/blog/blog-1-2.png" alt="">
-						<a href="blog-details.html"><i class="fas fa-plus"></i></a>
-					</div><!-- /.blog-one__image -->
-					<div class="blog-one__content">
-						<div class="blog-one__meta">
-							<a href="#"><i class="fas fa-calendar-alt"></i>September 12, 2019</a>
-							<a href="#"><i class="fas fa-user"></i>Admin</a>
-						</div><!-- /.blog-one__meta -->
-						<h3>
-							<a href="blog-details.html">What we are capable of the usually gets discovered.</a>
-						</h3>
-						<a href="blog-details.html" class="thm-btn blog-one__btn"><span>View more</span></a>
-						<!-- /.thm-btn blog-one__btn -->
-					</div><!-- /.blog-one__content -->
-				</div><!-- /.blog-one__single -->
-			</div><!-- /.col-lg-4  col-sm-12 -->
-			<div class="col-lg-4  col-sm-12">
-				<div class="blog-one__single wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="200ms">
-					<div class="blog-one__image">
-						<img src="assets/images/blog/blog-1-3.png" alt="">
-						<a href="blog-details.html"><i class="fas fa-plus"></i></a>
-					</div><!-- /.blog-one__image -->
-					<div class="blog-one__content">
-						<div class="blog-one__meta">
-							<a href="#"><i class="fas fa-calendar-alt"></i>September 12, 2019</a>
-							<a href="#"><i class="fas fa-user"></i>Admin</a>
-						</div><!-- /.blog-one__meta -->
-						<h3>
-							<a href="blog-details.html">Food industry leaders often change their promoters.</a>
-						</h3>
-						<a href="blog-details.html" class="thm-btn blog-one__btn"><span>View more</span></a>
-						<!-- /.thm-btn blog-one__btn -->
-					</div><!-- /.blog-one__content -->
-				</div><!-- /.blog-one__single -->
-			</div><!-- /.col-lg-4  col-sm-12 -->
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</section><!-- /.blog-one -->
+			<div class="col-md-12">
+				<div class="owl-carousel owl-theme clients-carousel">
+					@foreach (var img in Model.projects)
+					{
+						<div class="item box" style="width:187.5px;height:150px; display:flex;align-items:center"><img alt="client logo" class="client-img" src="@img.ImagePath"></div>
+
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

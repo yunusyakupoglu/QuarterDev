@@ -2,6 +2,7 @@
 using BL.IServices;
 using DTOs;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using UI.Models;
 
 namespace UI.Controllers
 {
+    [Authorize]
     public class SubtitleDescriptionController : Controller
     {
         private readonly ISubtitleDescriptionManager _sdManager;

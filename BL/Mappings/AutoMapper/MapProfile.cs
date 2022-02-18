@@ -64,6 +64,18 @@ namespace BL.Mappings.AutoMapper
             CreateMap<ProjectImageCreateDto, ObjProjectImage>().ReverseMap();
             CreateMap<ProjectImageListDto, ObjProjectImage>().ReverseMap();
             CreateMap<ProjectImageUpdateDto, ObjProjectImage>().ReverseMap();
+
+            CreateMap<FaqCreateDto, ObjFaq>().ReverseMap();
+            CreateMap<FaqListDto, ObjFaq>().ReverseMap();
+            CreateMap<FaqUpdateDto, ObjFaq>().ReverseMap();
+
+            CreateMap<CompanyServiceCreateDto, ObjCompanyService>().ReverseMap();
+            CreateMap<CompanyServiceListDto, ObjCompanyService>().ReverseMap();
+            CreateMap<CompanyServiceUpdateDto, ObjCompanyService>().ReverseMap();
+
+            CreateMap<CustomerCreateDto, ObjCustomer>().ReverseMap();
+            CreateMap<CustomerListDto, ObjCustomer>().ReverseMap();
+            CreateMap<CustomerUpdateDto, ObjCustomer>().ReverseMap();
         }
     }
 }
